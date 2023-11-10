@@ -1,4 +1,4 @@
-FROM openjdk:17-jdk-slim
-COPY target/*.jar fx-deal.jar
+FROM openjdk:17
+COPY target/fx-deals-warehouse-0.0.1-SNAPSHOT.jar /fx-deals-warehouse.jar
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "fx-deal.jar"]
+CMD ["java", "-jar", "/fx-deals-warehouse.jar"]

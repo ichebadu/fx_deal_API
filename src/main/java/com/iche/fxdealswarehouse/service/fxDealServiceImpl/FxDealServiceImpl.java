@@ -69,7 +69,7 @@ public class FxDealServiceImpl implements FXDealService {
         log.info("UNIQUE_ID {}", uniqueId);
         FXDeal fxDeal = fxDealRepository.findFXDealByUniqueId(uniqueId)
                 .orElseThrow(() -> {
-       //             log.error("No deal found with Id: {}", uniqueId);
+                    log.error("No deal found with Id: {}", uniqueId);
                     return new NotFoundException("No deal found with ID: " + uniqueId);
                 });
 
