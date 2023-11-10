@@ -3,8 +3,6 @@ package com.iche.fxdealswarehouse.utils;
 import com.iche.fxdealswarehouse.exception.ValidationException;
 import com.iche.fxdealswarehouse.model.FXDeal;
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;

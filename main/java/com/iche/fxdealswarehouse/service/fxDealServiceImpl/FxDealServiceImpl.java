@@ -26,8 +26,6 @@ public class FxDealServiceImpl implements FXDealService {
     @Override
     public APIResponse<FXDealDataResponse> saveFXDeal(FXDealRequest fxDealRequest) {
 
-        log.info("ONNFLKSJNLKJNSLKNSKLDSN {}",fxDealRequest.toString());
-
         if(fxDealRepository.existsByUniqueId(fxDealRequest.getUniqueId())){
             log.info("Attempt to save a duplicate deal with ID {}", fxDealRequest.getUniqueId());
             throw new DuplicateException("Deal already exists with ID: " +
@@ -45,8 +43,6 @@ public class FxDealServiceImpl implements FXDealService {
         validationUtils.validate(fxDeal);
 
 
-
-
         fxDealRepository.save(fxDeal);
 
         FXDealDataResponse fxDealDataResponse = FXDealDataResponse.builder()
@@ -57,16 +53,15 @@ public class FxDealServiceImpl implements FXDealService {
                 .dealTimestamp(fxDeal.getDealTimestamp())
                 .dealAmount(fxDeal.getDealAmount())
                 .build();
-        log.info("HHKDAWHKJDHDKJDA {}", fxDealDataResponse.getId());
 
-        log.info("Saved deal with ID {}",fxDeal.getUniqueId());
+        log.info("FX Deal response {}", fxDealDataResponse);
 
         return new APIResponse<>(fxDealDataResponse) ;
     }
 
     @Override
     public APIResponse<FXDealResponse> getFXDealByUniqueId(String uniqueId) {
-        log.info("UNIQUE_ID {}", uniqueId);
+
         FXDeal fxDeal = fxDealRepository.findFXDealByUniqueId(uniqueId)
                 .orElseThrow(() -> {
                     log.error("No deal found with Id: {}", uniqueId);
