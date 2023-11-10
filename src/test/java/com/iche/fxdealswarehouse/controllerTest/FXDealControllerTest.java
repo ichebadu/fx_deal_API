@@ -87,6 +87,8 @@ class FXDealControllerTest {
 
     @Test
     void getAllFXDeals_Success() {
+
+
         FXDeal deal1 = new FXDeal();
         FXDeal deal2 = new FXDeal();
         List<FXDeal> expectedDeals = Arrays.asList(deal1, deal2);

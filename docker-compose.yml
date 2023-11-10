@@ -1,10 +1,9 @@
-version: '3'
+version: '3.9'
 
 services:
-
   fx-deal-service:
     build:
-      context: .
+      context: /Users/decag/IdeaProjects/fx-deals-warehouse
     ports:
       - "8080:8080"
     depends_on:
@@ -17,8 +16,8 @@ services:
   db:
     image: postgres:latest
     environment:
-      POSTGRES_DB: fxdeals
+      POSTGRES_DB: fx_deals_db
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: 12345678
     ports:
-      - "5438:5432"
+      - "5432:5432"
